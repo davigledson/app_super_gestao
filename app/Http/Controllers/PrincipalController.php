@@ -9,6 +9,6 @@ class PrincipalController extends Controller
 {
     //
     public function Principal(){
-        echo 'seja ben vindo ao curso';
+        return view('site.principal'); //site/principal - tbm dar certo
     }
 }
