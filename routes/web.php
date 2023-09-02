@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PrincipalController;
+use App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\ContatoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('seja-bem-vindo');
-});
+// Route::get('/', function () {
+//     return view('seja-bem-vindo');
+// });
+$PrincialControler = new PrincipalController();
+Route::get('/',[$PrincialControler::class,'Principal']);
 
-Route::get('/sobre-nos', function () {
-    return view('sobre-nos');
-});
+Route::get('/sobre-nos', [SobreNosController::class,'SobreNos']);
 
 
-Route::get('/contato', function () {
-    return view('contato');
-});
+Route::get('/contato', [ContatoController::class,'Contato']);
