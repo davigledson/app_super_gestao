@@ -11,15 +11,12 @@ br
 echo 'php puro';
 
 
+@isset($fornecedores)
+Fornecedor {{$fornecedores[1]['nome']}}
+<br>
+Status {{$fornecedores[1]['status']}}
+CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'Vazio'  }}
+@endisset
 
-@if(count($fornecedores)>0 && count($fornecedores)<10)
 
- <h3>Existem alguns Fornecedorres cadastrados</h3>
 
- @elseif(count($fornecedores)>10)
-<h3>Existem varios Fornecedorres cadastrados</h3>
-
-@else
-<h3>Existem nenhum Fornecedorres cadastrados</h3>
-
-@endif
