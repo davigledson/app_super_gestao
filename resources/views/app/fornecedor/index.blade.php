@@ -2,27 +2,34 @@
 
 {{-- Fica o comentário que será descartado pelo interpretador do blade --}}
 
-@php
- //Para comentários de uma linha
 
- 
-@endphp 
-br
-echo 'php puro';
 
 
 
 @isset($fornecedores)
 
-@foreach($fornecedores as $indice=>$fornecedor)
+@forelse($fornecedores as $indice=>$fornecedor)
+@dd($loop)
+Iteração atual: {{$loop->iteration}}
     Fornecedor {{$fornecedor['nome']}}
     <br>
-    Status {{$fornecedor['status']}}
+    Status @{{$fornecedor['status']}}
     CNPJ: {{ $fornecedor['cnpj'] ?? 'Vazio'  }}
     Telefone: {{ $fornecedor['ddd'] ?? 'Vazio'  }} {{ $fornecedor['telefone'] ?? 'Vazio'  }}
+@if($loop->first)
+Primeira iteração do loop
+@endif
+
+@if($loop->last)
+ultima iteração do loop <br>
+
+Total de registros {{$loop->count}}
+@endif
 
 <hr>
-@endforeach()
+@empty
+Vazio
+@endforelse()
 
 
 
