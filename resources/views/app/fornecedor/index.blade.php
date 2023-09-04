@@ -13,17 +13,18 @@ echo 'php puro';
 
 
 @isset($fornecedores)
-@for($i = 0; isset($fornecedores[$i]); $i++)
 
-    Fornecedor {{$fornecedores[$i]['nome']}}
+@foreach($fornecedores as $indice=>$fornecedor)
+    Fornecedor {{$fornecedor['nome']}}
     <br>
-    Status {{$fornecedores[$i]['status']}}
-    CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'Vazio'  }}
-    Telefone: {{ $fornecedores[$i]['ddd'] ?? 'Vazio'  }} {{ $fornecedores[$i]['telefone'] ?? 'Vazio'  }}
+    Status {{$fornecedor['status']}}
+    CNPJ: {{ $fornecedor['cnpj'] ?? 'Vazio'  }}
+    Telefone: {{ $fornecedor['ddd'] ?? 'Vazio'  }} {{ $fornecedor['telefone'] ?? 'Vazio'  }}
 
 <hr>
- 
-@endfor
+@endforeach()
+
+
 
 @endisset
 
