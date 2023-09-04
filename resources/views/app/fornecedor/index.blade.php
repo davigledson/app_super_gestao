@@ -5,6 +5,21 @@
 @php
  //Para comentários de uma linha
 
- echo 'php puro';
+ 
 @endphp 
+br
 echo 'php puro';
+
+
+
+@if(count($fornecedores)>0 && count($fornecedores)<10)
+
+ <h3>Existem alguns Fornecedorres cadastrados</h3>
+
+ @elseif(count($fornecedores)>10)
+<h3>Existem varios Fornecedorres cadastrados</h3>
+
+@else
+<h3>Existem nenhum Fornecedorres cadastrados</h3>
+
+@endif
