@@ -11,33 +11,20 @@ br
 echo 'php puro';
 
 
+
 @isset($fornecedores)
-Fornecedor {{$fornecedores[1]['nome']}}
-<br>
-Status {{$fornecedores[1]['status']}}
-CNPJ: {{ $fornecedores[1]['cnpj'] ?? 'Vazio'  }}
-Telefone: {{ $fornecedores[1]['ddd'] ?? 'Vazio'  }} {{ $fornecedores[1]['telefone'] ?? 'Vazio'  }}
+@for($i = 0; isset($fornecedores[$i]); $i++)
 
-@switch ($fornecedores[2]['ddd'])
-    @case('11')
-        Sao paulo - SP
-        @break
-    @case('32')
-    Juiz de fora -MG
-        @break
+    Fornecedor {{$fornecedores[$i]['nome']}}
+    <br>
+    Status {{$fornecedores[$i]['status']}}
+    CNPJ: {{ $fornecedores[$i]['cnpj'] ?? 'Vazio'  }}
+    Telefone: {{ $fornecedores[$i]['ddd'] ?? 'Vazio'  }} {{ $fornecedores[$i]['telefone'] ?? 'Vazio'  }}
 
-     @case('84')
-    Barauna-RN
-        @break
+<hr>
+ 
+@endfor
 
-    @default
-    Estado não identificado
-
-
-
-
-
-@endswitch
 @endisset
 
 
