@@ -25,6 +25,8 @@ $PrincialControler = new PrincipalController();
 Route::get('/',[$PrincialControler::class,'Principal'])->name('site.index');
 Route::get('/sobre-nos', [SobreNosController::class,'SobreNos'])->name('site.sobrenos');
 Route::get('/contato', [ContatoController::class,'Contato'])->name('site.contato');
+Route::post('/contato', [ContatoController::class,'Contato'])->name('site.contato');
+
 Route::get('/login', function() {return 'login';})->name('site.login');
 
 Route::prefix('/app')->group(function(){
@@ -51,7 +53,7 @@ Route::get('/teste/{p1}/{p2}', [TesteController::class,'teste'])->name('teste');
 Route::fallback(function(){
     echo 'A rota acessada não existente';
 });
-    
+
 
 
 //Route::redirect('/rota2','/rota1');
@@ -61,9 +63,9 @@ Route::fallback(function(){
 //nome, categoria, assunto, mensagem
 
 // Route::get('/contato/{nome}/{categoria_id}', function(
-//     string $nome ='sem nome', 
+//     string $nome ='sem nome',
 //     int $categoria_id = 1, //1 = informacao
-   
+
 //      ) {
 //  echo 'estamo aqui '.$nome . '-'. $categoria_id. '-';
 // })->where('categoria_id','[0-9]+')->where('nome','[A-Za-z]+');
