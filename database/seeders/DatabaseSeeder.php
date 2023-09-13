@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Fornecedor;
+use App\Models\SiteContato;
 use Illuminate\Database\Seeder;
 
 
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(FornecedorSeeder::class);
+        $this->call(SiteContatoSeeder::class);
 
     }
 }
