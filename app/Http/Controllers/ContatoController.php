@@ -26,7 +26,7 @@ class ContatoController extends Controller
 
         //TEM PELO METODO CREATE
         $contato->create($request->all());
-        //$contato->save();
+        
 
          print_r($contato->getAttributes());
         return view('site.contato',['titulo'=>'Contato (teste)']); //site/principal - tbm dar certo
