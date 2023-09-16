@@ -8,12 +8,18 @@ use App\Models\SiteContato;
 class ContatoController extends Controller
 {
     public function Contato(Request $request){
+
+        $motivo_contatos =[
+            '1'=>'Dúvida',
+            '2'=>'Elogio',
+            '3'=>'Reclamação'
+        ];
         //dd($request);
         //var_dump($_POST);
 
         //TEM ESSA FORMA DE FAZER
 
-        $contato = new SiteContato();
+
         // $contato->nome = $request->input('nome');
         // $contato->telefone = $request->input('telefone');
         // $contato->email = $request->input('email');
@@ -25,11 +31,28 @@ class ContatoController extends Controller
         // $contato->save();
 
         //TEM PELO METODO CREATE
-        $contato->create($request->all());
-        
 
-         print_r($contato->getAttributes());
-        return view('site.contato',['titulo'=>'Contato (teste)']); //site/principal - tbm dar certo
+
+
+
+        //  print_r($contato->getAttributes());
+        return view('site.contato',[
+            'titulo'=>'Contato (teste)',
+            'motivo_contatos'=> $motivo_contatos
+        ]); //site/principal - tbm dar certo
+    }
+
+    public function salvar(Request $request){
+//realiza a validacao dos dados
+$request->validate([
+    'nome'=>'required |min:3|max:40',
+    'telefone'=>'required',
+    'email'=>'required',
+     'mensagem'=>'required |max:2000',
+    'motivo'=>'required',
+]);
+        SiteContato::create($request->all());
+
     }
 
 }
