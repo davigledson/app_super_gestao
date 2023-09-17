@@ -6,6 +6,7 @@ use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\TesteController;
+use App\Http\Middleware\LogAcessoMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,11 @@ use App\Http\Controllers\TesteController;
 //     return view('seja-bem-vindo');
 // });
 $PrincialControler = new PrincipalController();
-Route::get('/',[$PrincialControler::class,'Principal'])->name('site.index');
+
+Route::middleware(LogAcessoMiddleware::class)->get('/',[$PrincialControler::class,'Principal'])->name('site.index');
+
 Route::get('/sobre-nos', [SobreNosController::class,'SobreNos'])->name('site.sobrenos');
-Route::get('/contato', [ContatoController::class,'Contato'])->name('site.contato');
+Route::get('/contato', [ContatoController::class,'Contato'])->name('site.contato')->middleware(LogAcessoMiddleware::class);
 Route::post('/contato', [ContatoController::class,'salvar'])->name('site.contato');
 
 Route::get('/login', function() {return 'login';})->name('site.login');
