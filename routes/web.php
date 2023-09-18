@@ -5,6 +5,7 @@ use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TesteController;
 use App\Http\Middleware\LogAcessoMiddleware;
 
@@ -30,7 +31,8 @@ Route::get('/sobre-nos', [SobreNosController::class,'SobreNos'])->name('site.sob
 Route::get('/contato', [ContatoController::class,'Contato'])->name('site.contato');
 Route::post('/contato', [ContatoController::class,'salvar'])->name('site.contato');
 
-Route::get('/login', function() {return 'login';})->name('site.login');
+Route::get('/login',[LoginController::class,'index'])->name('site.login');
+Route::post('/login',[LoginController::class,'autenticar'])->name('site.login');
 
 Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function(){
     Route::get('/clientes', function() {return 'clientes';})->name('app.clientes');
