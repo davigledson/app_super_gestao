@@ -17,12 +17,13 @@ class LogAcessoMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         //$request - manipular
-        //return $next($request);
+
         //dd($request);
         $ip =$request->server->get('REMOTE_ADDR');
         $rota = $request->getRequestUri();
         LogAcesso::create(['log'=>"$ip xyz requisitou a rota $rota"]);
-        
+
+      return $next($request);
         return Response('Chegamos no middlware e finalizamos no proprio ');
         //response
     }

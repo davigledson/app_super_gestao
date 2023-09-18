@@ -9,7 +9,7 @@
 @isset($fornecedores)
 
 @forelse($fornecedores as $indice=>$fornecedor)
-@dd($loop)
+
 Iteração atual: {{$loop->iteration}}
     Fornecedor {{$fornecedor['nome']}}
     <br>
