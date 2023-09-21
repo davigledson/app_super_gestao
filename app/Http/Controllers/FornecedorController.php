@@ -38,6 +38,14 @@ class FornecedorController extends Controller
 //     }
 //
 public function index(){
-    return View('app.fornecedor');
+    return View('app.fornecedor.index');
+}
+
+public function listar(){
+    return View('app.fornecedor.listar');
+}
+
+public function adicionar(){
+    return View('app.fornecedor.adicionar');
 }
 }
