@@ -8,6 +8,9 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TesteController;
 use App\Http\Middleware\LogAcessoMiddleware;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProdutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,11 +38,14 @@ Route::get('/login/{erro?}',[LoginController::class,'index'])->name('site.login'
 Route::post('/login',[LoginController::class,'autenticar'])->name('site.login');
 
 Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(function(){
-    Route::get('/clientes', function() {return 'clientes';})->name('app.clientes');
+    Route::get('/home',[HomeController::class,'index'])->name('app.home');
+    Route::get('/sair', [LoginController::class,'sair'])->name('app.sair');
 
-    Route::get('/fornecedores',[FornecedorController::class,'index'] )->name('app.fornecedores');
+    Route::get('/cliente',[ClienteController::class,'index'])->name('app.cliente');
 
-    Route::get('/produtos', function() {return 'produtos';})->name('app.produtos');
+    Route::get('/fornecedor',[FornecedorController::class,'index'] )->name('app.fornecedor');
+
+    Route::get('/produto',[ProdutoController::class,'index'])->name('app.produto');
 });
 
 // Route::get('/rota1', function(){

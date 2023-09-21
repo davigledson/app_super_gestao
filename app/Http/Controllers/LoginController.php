@@ -41,7 +41,7 @@ class LoginController extends Controller
 
 
 
-        print_r($request->all());
+        //print_r($request->all());
 
         //iniciar o Model User
         $user = (new User());
@@ -52,7 +52,7 @@ class LoginController extends Controller
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
 
-            return redirect()->route('app.clientes');
+            return redirect()->route('app.home');
 
         } else {
             //echo "Usuario não existe";
@@ -62,5 +62,9 @@ class LoginController extends Controller
         //$usuario = $usuario;
 
        // print_r($usuario);
+    }
+
+    public function sair(){
+        echo 'Sair';
     }
 }
