@@ -11,7 +11,7 @@
 <ul>
 <li>
 <a href='{{route('app.fornecedor.adicionar')}}'>
-Novo
+Cadastrar
 </a>
 
 </li>
