@@ -47,10 +47,10 @@ public function listar(Request $request){
     ->where('site','like','%'.$request->input('site').'%')
     ->where('uf','like','%'.$request->input('uf').'%')
     ->where('email','like','%'.$request->input('email').'%')
-    ->get();
+    ->paginate(2);
 
     //dd($fornecedores);
-    return View('app.fornecedor.listar',['fornecedores'=> $fornecedores]);
+    return View('app.fornecedor.listar',['fornecedores'=> $fornecedores],['request'=> $request->all()]);
 }
 
 public function adicionar(Request $request){
@@ -83,7 +83,7 @@ public function adicionar(Request $request){
 
         //edição
     }
-    
+
     if($request->input('_token') != '' && $request->input('id') != '') {
             $fornecedor = Fornecedor::find($request->input('id'));
             $update = $fornecedor->update($request->all());
