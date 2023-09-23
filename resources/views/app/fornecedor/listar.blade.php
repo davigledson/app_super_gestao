@@ -56,8 +56,15 @@ Novo
             </tbody>
 
         </table>
-        {{$fornecedores->appends($request)->links()}}
+         {{$fornecedores->appends($request)->links()}}
+            {{--
+        {{$fornecedores->count()}} - Total de registros por página
 
+        {{$fornecedores->total()}} - Total de registros por da consulta
+        {{$fornecedores->firstItem()}} - primeiro registro da pagina
+        {{$fornecedores->lastItem()}} - Númoero do ultimo registro da pagina --}}
+
+        Exibindo {{$fornecedores->count()}} - fornecedores de {{$fornecedores->total()}} de ({{$fornecedores->firstItem()}} a  {{$fornecedores->lastItem()}})
 </div>
 </div>
 </div>
