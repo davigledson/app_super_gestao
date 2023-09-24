@@ -106,6 +106,13 @@ public function adicionar(Request $request){
 
     return View('app.fornecedor.adicionar',['fornecedor'=> $fornecedor,'msg' => $msg]);
 }
+
+public function excluir($id){
+    echo"chegamos até aqui $id";
+    Fornecedor::find($id)->delete();
+    //Fornecedor::find($id)->forceDelete(); - deletar permanentes
+    return redirect()->route('app.fornecedor');
+}
 }
 
 
