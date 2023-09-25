@@ -99,6 +99,12 @@ class ProdutoController extends Controller
     public function update(Request $request, Produto $produto)
     {
         //
+       //print_r($request->all()) ; //payload
+       //print_r($produto->getAttributes() ); // instancia do objeto no estado anterior
+
+       $produto->update($request->all());
+       return redirect()->route('produto.show',['produto'=>$produto->id]);
+
     }
 
     /**
@@ -107,5 +113,9 @@ class ProdutoController extends Controller
     public function destroy(Produto $produto)
     {
         //
+        //dd($produto);
+        $produto->delete();
+
+         return redirect()->route('produto.index',['produto'=>$produto->id]);
     }
 }
