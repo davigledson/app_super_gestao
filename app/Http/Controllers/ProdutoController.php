@@ -91,6 +91,11 @@ class ProdutoController extends Controller
             'produto' => $produto,
             'unidades' => $unidades,
         ]);
+
+        // return view('app.produto.create',[
+        //     'produto' => $produto,
+        //     'unidades' => $unidades,
+        // ]);
     }
 
     /**

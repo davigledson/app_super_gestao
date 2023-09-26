@@ -4,7 +4,10 @@
 
 <div class='conteudo-pagina'>
 <div class='titulo-pagina-2'>
+
 <p> Adicionar Produto</p>
+
+
 </div>
 
 <div class='menu'>
@@ -18,34 +21,12 @@
 {{$msg ?? ''}}
 
 <div style='width:30%;margin-left: auto;margin-right: auto;'>
-    <form method="post" action="{{route('produto.store')}}">
-    @csrf
 
-        <input type="text" name="nome" value='{{old('nome')}}' placeholder="Nome" class="borda-preta">
-        {{$errors->has('nome') ? $errors->first('nome') : ''}}
+@component('app.produto._components.form_create_edit',[
+            'unidades' => $unidades
+        ])
 
-
-        <input type="text" name="descricao"  value='{{old('descricao')}}' placeholder="descrição" class="borda-preta">
-
-    {{$errors->has('descricao') ? $errors->first('descricao') : ''}}
-
-        <input type="text" name="peso"  value='{{old('peso')}}' placeholder="peso" class="borda-preta">
-        {{$errors->has('peso') ? $errors->first('peso') : ''}}
-
-
-
-        <select name="unidade_id" >
-            <option value="">-- Selecione a Unidade de Medida --</option>
-            @foreach ($unidades as $unidade)
-                    <option value="{{$unidade->id}}" {{old('unidade_id') == $unidade->id ? 'selected' : ''}}>{{$unidade->descricao}}</option>
-            @endforeach
-
-        </select>
-        {{$errors->has('unidade_id') ? $errors->first('unidade_id') : ''}}
-
-
-        <input type="submit" value="Cadastrar ">
-    </form>
+@endcomponent
 </div>
 </div>
 </div>
