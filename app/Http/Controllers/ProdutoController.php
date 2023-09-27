@@ -17,24 +17,24 @@ class ProdutoController extends Controller
     {
         $produtos = Produto::paginate(10);
 
-        foreach ($produtos as $key => $produto) {
-            //print_r($produto->getAttributes());
-           // echo '<br><br>';
+        // foreach ($produtos as $key => $produto) {
+        //     //print_r($produto->getAttributes());
+        //    // echo '<br><br>';
 
-            $produtoDetalhe = ProdutoDetalhe::where('produto_id',$produto->id)->first();
-        //sem o first seria uma collection
+        //     $produtoDetalhe = ProdutoDetalhe::where('produto_id',$produto->id)->first();
+        // //sem o first seria uma collection
 
-        if(isset($produtoDetalhe)){
-            //print_r($produtoDetalhe->getAttributes());
+        // if(isset($produtoDetalhe)){
+        //     //print_r($produtoDetalhe->getAttributes());
 
-            $produtos[$key]['comprimento'] = $produtoDetalhe->comprimento;
-            $produtos[$key]['largura']=$produtoDetalhe->largura;
+        //     $produtos[$key]['comprimento'] = $produtoDetalhe->comprimento;
+        //     $produtos[$key]['largura']=$produtoDetalhe->largura;
 
-            $produtos[$key]['altura']=$produtoDetalhe->altura;
+        //     $produtos[$key]['altura']=$produtoDetalhe->altura;
 
 
-        }
-        }
+        // }
+        // }
 
 //echo '<hr>';
 
