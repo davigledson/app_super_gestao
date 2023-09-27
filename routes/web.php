@@ -11,6 +11,7 @@ use App\Http\Middleware\LogAcessoMiddleware;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ProdutoDetalheController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +54,12 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     Route::post('/fornecedor/listar',[FornecedorController::class,'listar'] )->name('app.fornecedor.listar');
     Route::get('/fornecedor/listar',[FornecedorController::class,'listar'] )->name('app.fornecedor.listar');
 
+    //produto
     Route::resource('produto', ProdutoController::class);
+
+    //produtos detalhes
+    Route::resource('produto-detalhe', ProdutoDetalheController::class);
+
 });
 
 // Route::get('/rota1', function(){
