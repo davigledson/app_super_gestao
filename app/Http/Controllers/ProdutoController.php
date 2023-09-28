@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\ProdutoDetalhe;
 use Illuminate\Http\Request;
 use App\Models\Unidade;
-
+use App\Models\Item;
+use App\Models\ItemDetalhe;
 class ProdutoController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
-        $produtos = Produto::paginate(10);
+        //$produtos = Produto::paginate(10);
+        $produtos = Item::paginate(10);
 
         // foreach ($produtos as $key => $produto) {
         //     //print_r($produto->getAttributes());
