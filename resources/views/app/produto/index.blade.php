@@ -48,6 +48,7 @@
                     <td>{{$produto->descricao}}</td>
                     <td>{{$produto->peso}}</td>
                     <td>{{$produto->unidade_id}}</td>
+                    {{$produto->toJson()}}
                    <td>{{$produto->itemDetalhe->comprimento ?? ''}}</td>
 
                     <td>{{$produto->itemDetalhe->altura ?? ''}}</td>
