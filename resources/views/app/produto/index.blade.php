@@ -28,6 +28,8 @@
             <tr>
                 <th>Nome</th>
                 <th>Descrição</th>
+                <th>Nome do Fornecedor</th>
+                <th>Site do Fornecedor</th>
                 <th>Peso</th>
                 <th>Comprimento</th>
                 <th>Altura</th>
@@ -46,9 +48,11 @@
                 <tr>
                     <td>{{$produto->nome}}</td>
                     <td>{{$produto->descricao}}</td>
+                    <td>{{$produto->fornecedor->nome}}</td>
+                    <td>{{$produto->fornecedor->site}}</td>
                     <td>{{$produto->peso}}</td>
                     <td>{{$produto->unidade_id}}</td>
-                    {{$produto->toJson()}}
+
                    <td>{{$produto->itemDetalhe->comprimento ?? ''}}</td>
 
                     <td>{{$produto->itemDetalhe->altura ?? ''}}</td>
