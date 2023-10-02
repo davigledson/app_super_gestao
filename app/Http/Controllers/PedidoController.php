@@ -4,19 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Cliente;
-class ClienteController extends Controller
+
+class PedidoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $clientes = Cliente::paginate(10);
-        return View('app.cliente.index',[
-            'clientes' => $clientes,
-            'request' => $request->all()
-        ]);
+        //
     }
 
     /**
@@ -25,7 +21,6 @@ class ClienteController extends Controller
     public function create()
     {
         //
-        return View('app.cliente.create');
     }
 
     /**
@@ -34,23 +29,6 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         //
-        $regras = [
-            'nome'=>'required|min:3|max:40'
-        ];
-
-        $feedback = [
-            'required'=>' O campo :attribute deve ser preenchido',
-            'nome.min' => 'O campo nome deve ter no mínimo 3 caracteres',
-            'nome.miax' => 'O campo nome deve ter no mínimo 3 caracteres',
-        ];
-
-        $request->validate($regras,$feedback);
-
-        $cliente = new Cliente();
-        $cliente->nome = $request->get('nome');
-        $cliente->save();
-
-        return redirect()->route('cliente.index');
     }
 
     /**

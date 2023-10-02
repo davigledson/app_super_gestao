@@ -10,6 +10,8 @@ use App\Http\Controllers\TesteController;
 use App\Http\Middleware\LogAcessoMiddleware;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\PedidoProdutoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ProdutoDetalheController;
 
@@ -42,7 +44,7 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
     Route::get('/home',[HomeController::class,'index'])->name('app.home');
     Route::get('/sair', [LoginController::class,'sair'])->name('app.sair');
 
-    Route::get('/cliente',[ClienteController::class,'index'])->name('app.cliente');
+   
 
     Route::get('/fornecedor',[FornecedorController::class,'index'] )->name('app.fornecedor');
     Route::get('/fornecedor/adicionar',[FornecedorController::class,'adicionar'] )->name('app.fornecedor.adicionar');
@@ -59,6 +61,10 @@ Route::middleware('autenticacao:padrao,visitante')->prefix('/app')->group(functi
 
     //produtos detalhes
     Route::resource('produto-detalhe', ProdutoDetalheController::class);
+
+    Route::resource('cliente',ClienteController::class);
+    Route::resource('pedido',PedidoController::class);
+    Route::resource('pedido-produto',PedidoProdutoController::class);
 
 });
 
