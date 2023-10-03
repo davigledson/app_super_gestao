@@ -38,6 +38,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
 
 
             </tr>
@@ -71,6 +72,18 @@
                         </td>
                     <td><a href='{{route('produto.edit',['produto'=>$produto->id])}}'>Editar</a></td>
 
+                </tr>
+                <tr>
+                <td colspan='12'>
+                Exibir o ID do Pedido
+                <p>Pedidos</p>
+                @foreach ($produto->pedidos as $pedido)
+               
+                <a href='{{route('pedido-produto.create',['pedido'=>$pedido->id])}}'>
+                   Pedido: {{ $pedido->id}},
+                </a>
+                @endforeach
+                </td>
                 </tr>
             @endforeach
 
