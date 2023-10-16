@@ -124,7 +124,7 @@ class PedidoProdutoController extends Controller
         //$pedido->produtos()->detach($produto->id);
             $pedidoProduto->delete();
         return redirect()->route('pedido-produto.create',[
-            
+
             'pedido'=>$pedido_id
         ]);
 
