@@ -104,7 +104,10 @@ public function adicionar(Request $request){
     //echo 'chegamos até aqui'.$id;
     $fornecedor = Fornecedor::find($id);
 
-    return View('app.fornecedor.adicionar',['fornecedor'=> $fornecedor,'msg' => $msg]);
+    return View('app.fornecedor.adicionar',[
+        'fornecedor'=> $fornecedor,
+        'msg' => $msg
+    ]);
 }
 
 public function excluir($id){
